@@ -1,0 +1,130 @@
+{
+  "project_info": {
+    "project_number": "125496238342",
+    "firebase_url": "https://bedtracker-b0b21.firebaseio.com",
+    "project_id": "bedtracker-b0b21",
+    "storage_bucket": "bedtracker-b0b21.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125496238342:android:189c8bcb4c44bebd1f3e87",
+        "android_client_info": {
+          "package_name": "com.example.bedtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "125496238342-8fvalte5lp4qjgp59hf5k6so3k1i992v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bedtracker",
+            "certificate_hash": "d43519fc8cc2897f54b42885822aba11e6b97dee"
+          }
+        },
+        {
+          "client_id": "125496238342-8l4jev2t0s2bj8cqbhtkb2kfihrj581c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bedtracker",
+            "certificate_hash": "9625bc186ca41b10fb96f7c64cb21234e19112ab"
+          }
+        },
+        {
+          "client_id": "125496238342-t9jdshh293g6ehbs4jk66l3v8j8qca24.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bedtracker",
+            "certificate_hash": "92e5505236d0299edcc792401b11f053a694a11a"
+          }
+        },
+        {
+          "client_id": "125496238342-tjt2hffeot5d0vu63r3rcaqs49ee7cim.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bedtracker",
+            "certificate_hash": "532f86fc421ba1776a910d8c731d178ad78b2fdc"
+          }
+        },
+        {
+          "client_id": "125496238342-q7me6ovr9ganotrr3841v1vpsiqiurjg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAIOofJcUd6nHNsR2zlDQlY1li2PrNwlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "125496238342-q7me6ovr9ganotrr3841v1vpsiqiurjg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125496238342:android:655c591bd6e2fc711f3e87",
+        "android_client_info": {
+          "package_name": "com.sharmaumang.hospital_bed_trackker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "125496238342-q7me6ovr9ganotrr3841v1vpsiqiurjg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAIOofJcUd6nHNsR2zlDQlY1li2PrNwlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "125496238342-q7me6ovr9ganotrr3841v1vpsiqiurjg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125496238342:android:3abde8dc61578f6f1f3e87",
+        "android_client_info": {
+          "package_name": "com.sharmaumang.hospitalbedtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "125496238342-q7me6ovr9ganotrr3841v1vpsiqiurjg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAIOofJcUd6nHNsR2zlDQlY1li2PrNwlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "125496238342-q7me6ovr9ganotrr3841v1vpsiqiurjg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

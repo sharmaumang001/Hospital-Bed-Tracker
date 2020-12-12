@@ -1,4 +1,4 @@
-package com.example.bedtracker;
+package com.sharmaumang.hospital_bed_trackker;
 
 import android.os.Bundle;
 
@@ -37,7 +37,7 @@ public class Phone extends Fragment {
                 } else {
                     Bundle bundle = new Bundle();
                     bundle.putString("phoneNumber", phn_no);
-                    Verify verifyFragment = new Verify();
+                    com.example.bedtracker.Verify verifyFragment = new com.example.bedtracker.Verify();
                     verifyFragment.setArguments(bundle);
                     FragmentTransaction fr = getActivity().getSupportFragmentManager().beginTransaction();
                     fr.replace(R.id.container, verifyFragment);

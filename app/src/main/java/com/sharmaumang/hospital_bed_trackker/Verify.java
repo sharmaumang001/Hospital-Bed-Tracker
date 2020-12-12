@@ -1,5 +1,6 @@
-package com.example.bedtracker;
+package com.sharmaumang.hospital_bed_trackker;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -102,7 +103,7 @@ public class Verify extends Fragment {
                 number,
                 60,
                 TimeUnit.SECONDS,
-                TaskExecutors.MAIN_THREAD,
+                (Activity) TaskExecutors.MAIN_THREAD,
                 mCallBack
         );
 

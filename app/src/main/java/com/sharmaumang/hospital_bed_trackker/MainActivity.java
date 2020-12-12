@@ -1,4 +1,4 @@
-package com.example.bedtracker;
+package com.sharmaumang.hospital_bed_trackker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
