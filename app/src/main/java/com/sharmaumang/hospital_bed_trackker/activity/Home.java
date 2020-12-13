@@ -8,7 +8,6 @@ import android.view.WindowManager;
 
 import com.sharmaumang.hospital_bed_trackker.R;
 
-
 public class Home extends AppCompatActivity {
 
     @Override

@@ -1,6 +1,5 @@
 package com.sharmaumang.hospital_bed_trackker.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +8,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.sharmaumang.hospital_bed_trackker.R;
-import com.sharmaumang.hospital_bed_trackker.activity.HospitalLogin;
 
 
 public class Welcome extends AppCompatActivity {

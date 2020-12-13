@@ -39,7 +39,7 @@ public class HospitalLogin extends AppCompatActivity {
             Toast.makeText(HospitalLogin.this,"Enter the correct auth",Toast.LENGTH_LONG).show();
         }
         else{
-            startActivity(new Intent(HospitalLogin.this, HospitalRegistration.class));
+            startActivity(new Intent(HospitalLogin.this, com.example.bedtracker.activity.HospitalRegistration.class));
         }
     }
 }
