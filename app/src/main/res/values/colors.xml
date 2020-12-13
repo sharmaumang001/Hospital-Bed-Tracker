@@ -10,6 +10,7 @@
     <color name="black">#000</color>
     <color name="white">#fff</color>
     <color name="lightBlue">#03a9f4</color>
+    <color name="statusbar">#80000000</color>
 
 
 </resources>

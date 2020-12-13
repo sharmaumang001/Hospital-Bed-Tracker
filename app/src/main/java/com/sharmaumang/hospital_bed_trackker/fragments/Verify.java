@@ -1,4 +1,4 @@
-package com.sharmaumang.hospital_bed_trackker;
+package com.sharmaumang.hospital_bed_trackker.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,12 +15,15 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.alimuzaffar.lib.pin.PinEntryEditText;
+
+
 import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.sharmaumang.hospital_bed_trackker.R;
+import com.sharmaumang.hospital_bed_trackker.activity.Home;
 
 import java.util.concurrent.TimeUnit;
 

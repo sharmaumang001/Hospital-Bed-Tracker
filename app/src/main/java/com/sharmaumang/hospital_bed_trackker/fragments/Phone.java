@@ -1,4 +1,4 @@
-package com.sharmaumang.hospital_bed_trackker;
+package com.sharmaumang.hospital_bed_trackker.fragments;
 
 import android.os.Bundle;
 
@@ -12,7 +12,6 @@ import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.sharmaumang.hospital_bed_trackker.R;
-import com.sharmaumang.hospital_bed_trackker.fragments.Verify;
 
 public class Phone extends Fragment {
     TextInputLayout textInputLayout;
