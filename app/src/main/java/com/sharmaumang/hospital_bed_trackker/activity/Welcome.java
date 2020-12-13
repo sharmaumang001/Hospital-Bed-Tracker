@@ -11,7 +11,6 @@ import android.widget.Button;
 
 import com.sharmaumang.hospital_bed_trackker.R;
 import com.sharmaumang.hospital_bed_trackker.activity.HospitalLogin;
-import com.sharmaumang.hospital_bed_trackker.activity.MainActivity;
 
 
 public class Welcome extends AppCompatActivity {
@@ -41,7 +40,7 @@ public class Welcome extends AppCompatActivity {
         user_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Welcome.this, MainActivity.class));
+                startActivity(new Intent(Welcome.this,MainActivity.class));
             }
         });
 

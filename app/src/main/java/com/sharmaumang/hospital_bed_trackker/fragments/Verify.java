@@ -15,8 +15,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.alimuzaffar.lib.pin.PinEntryEditText;
-
-
 import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
