@@ -5,4 +5,5 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="statusbar">#80000000</color>
     <color name="black">#000</color>
+    <color name="purple">#6200EE</color>
 </resources>

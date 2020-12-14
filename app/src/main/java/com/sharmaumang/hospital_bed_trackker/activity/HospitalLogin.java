@@ -20,13 +20,14 @@ public class HospitalLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hospital_login);
 
-
+        //changing status bar
         if (android.os.Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(this.getResources().getColor(R.color.statusbar));
         }
+
         mail = findViewById(R.id.mail_lay);
         pass = findViewById(R.id.pass_lay);
         String email = mail.getEditText().getText().toString();
@@ -39,7 +40,7 @@ public class HospitalLogin extends AppCompatActivity {
             Toast.makeText(HospitalLogin.this,"Enter the correct auth",Toast.LENGTH_LONG).show();
         }
         else{
-            startActivity(new Intent(HospitalLogin.this, com.example.bedtracker.activity.HospitalRegistration.class));
+            startActivity(new Intent(HospitalLogin.this,HospitalRegistration.class));
         }
     }
 }
