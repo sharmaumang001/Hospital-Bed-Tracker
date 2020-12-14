@@ -52,7 +52,7 @@
                 app:boxCornerRadiusBottomStart="24dp"
                 app:boxCornerRadiusTopEnd="24dp"
                 app:boxCornerRadiusTopStart="24dp"
-                app:layout_constraintBottom_toTopOf="@+id/dist_emplee"
+                app:layout_constraintBottom_toTopOf="@+id/id_emplee"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/dist_emplee"
+                android:id="@+id/id_emplee"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,12 +76,12 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="8dp"
-                android:hint="District"
+                android:hint="Hospital ID"
                 app:boxCornerRadiusBottomEnd="24dp"
                 app:boxCornerRadiusBottomStart="24dp"
                 app:boxCornerRadiusTopEnd="24dp"
                 app:boxCornerRadiusTopStart="24dp"
-                app:layout_constraintBottom_toTopOf="@+id/city_emplee"
+                app:layout_constraintBottom_toTopOf="@+id/pass_emplee"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -89,21 +89,21 @@
                 app:startIconDrawable="@drawable/ic_district">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_dist_emplee"
+                    android:id="@+id/et_id_emplee"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/city_emplee"
+                android:id="@+id/pass_emplee"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="24dp"
-                android:hint="Postal Code"
+                android:hint="Set up new Password"
                 app:boxCornerRadiusBottomEnd="24dp"
                 app:boxCornerRadiusBottomStart="24dp"
                 app:boxCornerRadiusTopEnd="24dp"
@@ -112,11 +112,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dist_emplee"
+                app:layout_constraintTop_toBottomOf="@+id/id_emplee"
                 app:startIconDrawable="@drawable/ic_pincode">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_city_emplee"
+                    android:id="@+id/et_pass_emplee"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 

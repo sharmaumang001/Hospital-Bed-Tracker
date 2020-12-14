@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.view.Window;
@@ -40,7 +41,7 @@ public class HospitalLogin extends AppCompatActivity {
             Toast.makeText(HospitalLogin.this,"Enter the correct auth",Toast.LENGTH_LONG).show();
         }
         else{
-            startActivity(new Intent(HospitalLogin.this,HospitalRegistration.class));
+            startActivity(new Intent(HospitalLogin.this, HospitalRegistration.class));
         }
     }
 }
