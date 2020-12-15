@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.sharmaumang.hospital_bed_trackker.R;
+import com.sharmaumang.hospital_bed_trackker.activity.BedInfo;
 
 import java.util.HashMap;
 
@@ -91,7 +92,7 @@ public class HospitalRegistration extends AppCompatActivity {
 
                                         Toast.makeText(HospitalRegistration.this, "Registration successful", Toast.LENGTH_SHORT).show();
 
-                                        Intent intent = new Intent(HospitalRegistration.this, MainActivity.class);
+                                        Intent intent = new Intent(HospitalRegistration.this, BedInfo.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);
                                         finish();

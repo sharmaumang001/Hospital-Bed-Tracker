@@ -8,6 +8,7 @@ import android.view.WindowManager;
 
 import com.sharmaumang.hospital_bed_trackker.R;
 
+
 public class Home extends AppCompatActivity {
 
     @Override
@@ -22,6 +23,6 @@ public class Home extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.statusbar));
         }
 
-        //TODO : Umang will maintain the recycler view here
+        //TODO : Will maintain the recycler view here
     }
 }
