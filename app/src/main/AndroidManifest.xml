@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hospitalbedtrackker">
-        <activity android:name=".activity.BedInfo"></activity>
+        <activity android:name=".activity.HospitalBedUpdate"></activity>
 
         <activity android:name=".activity.BedDetails" />
         <activity android:name=".activity.HospitalRegistration" />
