@@ -24,7 +24,7 @@
             >
 
             <TextView
-                android:id="@+id/tvCar"
+                android:id="@+id/tvHospital"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppinsbold"
@@ -62,7 +62,7 @@
 
 
             <TextView
-                android:id="@+id/tvName"
+                android:id="@+id/tvTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -72,11 +72,12 @@
                 android:text="Total Beds"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="10dp" />
 
 
             <TextView
-                android:id="@+id/tvDistrict"
+                android:id="@+id/tvAvailable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -86,45 +87,50 @@
                 android:text="Available Beds"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/tvName" />
+                app:layout_constraintTop_toBottomOf="@+id/tvTotal"
+                android:layout_marginLeft="10dp" />
 
-            <TextView
-                android:id="@+id/tvPin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppinsregular"
-                android:padding="3dp"
-                android:text="District"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/tvPhone"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/tvDistrict" />
+<!--            <TextView-->
+<!--                android:id="@+id/tvPin"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:fontFamily="@font/poppinsregular"-->
+<!--                android:padding="3dp"-->
+<!--                android:text="District"-->
+<!--                android:textSize="16sp"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/tvPhone"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/imageView"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/tvDistrict"-->
+<!--                android:layout_marginLeft="10dp" />-->
 
-            <TextView
-                android:id="@+id/tvPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:fontFamily="@font/poppinssemibold"
-                android:padding="3dp"
-                android:text="Pincode"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/tvPin" />
+<!--            <TextView-->
+<!--                android:id="@+id/tvPhone"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_marginBottom="5dp"-->
+<!--                android:fontFamily="@font/poppinssemibold"-->
+<!--                android:padding="3dp"-->
+<!--                android:text="Pincode"-->
+<!--                android:textSize="16sp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/imageView"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/tvPin" />-->
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="92dp"
                 android:layout_height="91dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="4dp"
+
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="32dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/shadow"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/hospital" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

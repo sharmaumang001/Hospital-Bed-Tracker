@@ -16,8 +16,10 @@ import com.sharmaumang.hospital_bed_trackker.R;
 import com.sharmaumang.hospital_bed_trackker.activity.HospitalRegistration;
 
 public class HospitalLogin extends AppCompatActivity {
-    private TextInputLayout mail,pass;
+
+    private TextInputLayout mail, pass;
     private MaterialButton btnLogin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,7 @@ public class HospitalLogin extends AppCompatActivity {
 
         mail = findViewById(R.id.mail_lay);
         pass = findViewById(R.id.pass_lay);
-        btnLogin=findViewById(R.id.btnLogin);
+        btnLogin = findViewById(R.id.btnLogin);
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -43,13 +45,11 @@ public class HospitalLogin extends AppCompatActivity {
                 String email = mail.getEditText().getText().toString();
                 String password = pass.getEditText().getText().toString();
 
-                if(TextUtils.isEmpty(mail.getEditText().getText()) || TextUtils.isEmpty(pass.getEditText().getText())){
-                    Toast.makeText(HospitalLogin.this,"Enter the auth",Toast.LENGTH_LONG).show();
-                }
-                else if(!(email.equals("abc@gmail.com")) || !(password.equals("123"))){
-                    Toast.makeText(HospitalLogin.this,"Enter the correct auth",Toast.LENGTH_LONG).show();
-                }
-                else{
+                if (TextUtils.isEmpty(mail.getEditText().getText()) || TextUtils.isEmpty(pass.getEditText().getText())) {
+                    Toast.makeText(HospitalLogin.this, "Enter the auth", Toast.LENGTH_LONG).show();
+                } else if (!(email.equals("abc@gmail.com")) || !(password.equals("123"))) {
+                    Toast.makeText(HospitalLogin.this, "Enter the correct auth", Toast.LENGTH_LONG).show();
+                } else {
                     startActivity(new Intent(HospitalLogin.this, HospitalRegistration.class));
                 }
 
