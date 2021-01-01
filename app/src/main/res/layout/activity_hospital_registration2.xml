@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="Register 1/2"
+        android:text="Register 2/2"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@id/imageView"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/f_name_emplee"
+                android:id="@+id/f_name_emplee2"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
                 app:startIconDrawable="@drawable/ic_name">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_f_name_emplee"
+                    android:id="@+id/et_f_name_emplee2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
@@ -69,7 +69,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/id_emplee"
+                android:id="@+id/id_emplee2"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,18 +86,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/f_name_emplee"
+                app:layout_constraintTop_toBottomOf="@+id/f_name_emplee2"
                 app:startIconDrawable="@drawable/ic_district">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_id_emplee"
+                    android:id="@+id/et_id_emplee2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/pass_emplee"
+                android:id="@+id/pass_emplee2"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,13 +113,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/id_emplee"
+                app:layout_constraintTop_toBottomOf="@+id/id_emplee2"
                 app:startIconDrawable="@drawable/ic_pincode">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_pass_emplee"
+                    android:id="@+id/et_pass_emplee2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -136,6 +137,7 @@
         android:layout_marginEnd="40dp"
         android:fontFamily="@font/poppinssemibold"
         android:text="Submit"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="270:50"
         app:layout_constraintEnd_toEndOf="parent"
