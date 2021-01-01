@@ -90,6 +90,7 @@ public class HospitalRegistration2 extends AppCompatActivity {
 
                             HashMap<String, String> hashMap = new HashMap<>();
                             hashMap.put("Hospital UID", userid);
+                            hashMap.put("Hospital ID", email);
                             hashMap.put("Hospital Name", hospitalName);
                             hashMap.put("Total Number of beds", "0");
                             hashMap.put("Number of beds available", "0");
@@ -105,7 +106,7 @@ public class HospitalRegistration2 extends AppCompatActivity {
 
                                         Toast.makeText(HospitalRegistration2.this, "Registration Successful", Toast.LENGTH_SHORT).show();
 
-                                        Intent intent = new Intent(HospitalRegistration2.this, HospitalBedUpdate.class);
+                                        Intent intent = new Intent(HospitalRegistration2.this,HospitalBedUpdate.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(intent);
                                         finish();

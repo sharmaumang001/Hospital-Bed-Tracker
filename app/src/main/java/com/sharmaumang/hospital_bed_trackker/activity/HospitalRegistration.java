@@ -11,7 +11,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
+
 import com.google.android.material.textfield.TextInputEditText;
+import com.sharmaumang.hospital_bed_trackker.R;
+import com.sharmaumang.hospital_bed_trackker.activity.HospitalRegistration2;
 
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -33,6 +36,9 @@ public class HospitalRegistration extends AppCompatActivity {
         mHospitalId = findViewById(R.id.et_id_emplee);
         mPassword = findViewById(R.id.et_pass_emplee);
         mSubmit = findViewById(R.id.hos_submit);
+
+        String txt_hospital_id_fromLogin = getIntent().getExtras().getString("Email","defaultKey");
+        mHospitalId.setText(txt_hospital_id_fromLogin);
 
 
         mSubmit.setOnClickListener(new View.OnClickListener() {
@@ -56,11 +62,10 @@ public class HospitalRegistration extends AppCompatActivity {
 
     private void Send (final String hospitalName, String email, String password){
 
-        Intent mIntent = new Intent(HospitalRegistration.this,HospitalRegistration2.class);
+        Intent mIntent = new Intent(HospitalRegistration.this, HospitalRegistration2.class);
         mIntent.putExtra("Hospital Name",hospitalName);
         mIntent.putExtra("Email",email);
         mIntent.putExtra("Password",password);
-        finish();
         startActivity(mIntent);
 
     }

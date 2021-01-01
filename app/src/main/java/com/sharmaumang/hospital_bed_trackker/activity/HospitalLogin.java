@@ -1,4 +1,4 @@
-package com.sharmaumang.hospital_bed_trackker.activity;
+package com.example.bedtracker.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import com.example.bedtracker.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
@@ -22,7 +24,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.sharmaumang.hospital_bed_trackker.R;
 
 public class HospitalLogin extends AppCompatActivity {
 
@@ -68,36 +69,8 @@ public class HospitalLogin extends AppCompatActivity {
                     finish();
                     startActivity(mIntent);
 
-                }
-
-                else{
-
-                    DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-                    DatabaseReference userNameRef = rootRef.child("users");
-                    Query queries=userNameRef.orderByChild("fullname").equalTo("Nick123");
-
-
-
-                    ValueEventListener eventListener = new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            if(!dataSnapshot.exists()) {
-
-                                Toast.makeText(HospitalLogin.this,"New to app , Please Register",Toast.LENGTH_SHORT).show();
-                                Intent mIntent = new Intent(HospitalLogin.this,HospitalRegistration.class);
-                                finish();
-                                startActivity(mIntent);
-
-                            }else{
-
-                                SignIn(email,password);
-
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {}
-                    };
+                }else{
+                    userRegistrationCheck(email,password);
 
                 }
 
@@ -115,14 +88,48 @@ public class HospitalLogin extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Intent intent = new Intent(HospitalLogin.this, MainActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                             finish();
                         } else {
+
                             Toast.makeText(HospitalLogin.this, "Authentication failed!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
 
     }
+
+
+    public void userRegistrationCheck(String Email,String Password){
+
+
+        DatabaseReference UserReference = FirebaseDatabase.getInstance().getReference("Users");
+        UserReference.orderByChild("Hospital ID").equalTo(Email).addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if (dataSnapshot.getValue() != null){
+
+                    SignIn(Email,Password);
+
+                }else{
+
+                    Intent mIntent = new Intent(HospitalLogin.this,HospitalRegistration.class);
+                    mIntent.putExtra("Email",Email);
+                    finish();
+                    startActivity(mIntent);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+
 }
