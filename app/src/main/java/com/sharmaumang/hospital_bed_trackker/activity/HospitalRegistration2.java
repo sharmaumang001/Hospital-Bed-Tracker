@@ -28,7 +28,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
@@ -36,7 +38,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
+import com.google.firebase.storage.UploadTask;
 import com.sharmaumang.hospital_bed_trackker.R;
+import com.sharmaumang.hospital_bed_trackker.activity.HospitalBedUpdate;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -55,7 +61,10 @@ public class HospitalRegistration2 extends AppCompatActivity {
     int Image_Request_Code = 7;
     ProgressDialog progressDialog ;
 
+    StorageTask<UploadTask.TaskSnapshot> uploadTask;
+    StorageReference storageReference;
     FirebaseAuth auth;
+    FirebaseUser firebaseUser;
     DatabaseReference reference;
 
     String pin="not provided";
@@ -110,10 +119,8 @@ public class HospitalRegistration2 extends AppCompatActivity {
 
                     Toast.makeText(HospitalRegistration2.this, "Enter a valid Phone Number", Toast.LENGTH_SHORT).show();
                 } else {
-
-                    getLocation();
-
                     Register(txt_hospital_name,txt_hospital_id,txt_password,txt_employee_name, txt_employee_id, txt_Phone);
+
                 }
             }
         });
@@ -129,21 +136,23 @@ public class HospitalRegistration2 extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            FirebaseUser firebaseUser = auth.getCurrentUser();
+                            firebaseUser = auth.getCurrentUser();
                             assert firebaseUser != null;
-                            String userid = firebaseUser.getUid();
+                            String userId = firebaseUser.getUid();
 
-                            reference = FirebaseDatabase.getInstance().getReference("Users").child(userid);
+                            reference = FirebaseDatabase.getInstance().getReference("Users").child(userId);
 
                             HashMap<String, String> hashMap = new HashMap<>();
-                            hashMap.put("Hospital UID", userid);
+                            hashMap.put("Hospital UID", userId);
                             hashMap.put("Hospital ID", email);
                             hashMap.put("Hospital Name", hospitalName);
                             hashMap.put("Total Number of beds", "0");
                             hashMap.put("Number of beds available", "0");
+                            hashMap.put("ID CARD URL", "0");
+                            hashMap.put("Data-Time", "0");
                             hashMap.put("Employee Name", employeeName);
                             hashMap.put("Employee ID",employeeId);
-                            hashMap.put("Empliyee Phone Number", employeePhone);
+                            hashMap.put("Employee Phone Number", employeePhone);
 
 
                             reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -151,12 +160,8 @@ public class HospitalRegistration2 extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()){
 
-                                        Toast.makeText(HospitalRegistration2.this, "Registration Successful", Toast.LENGTH_SHORT).show();
 
-                                        Intent intent = new Intent(HospitalRegistration2.this, HospitalBedUpdate.class);
-                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        startActivity(intent);
-                                        finish();
+                                        uploadImage();
                                     }
                                 }
                             });
@@ -172,6 +177,7 @@ public class HospitalRegistration2 extends AppCompatActivity {
 
 
     //to fetch location of user
+
     @SuppressLint("MissingPermission")
     private void getLocation() {
 
@@ -187,15 +193,13 @@ public class HospitalRegistration2 extends AppCompatActivity {
 
                         try {
                             Geocoder geocoder = new Geocoder(HospitalRegistration2.this
-                                    , Locale.getDefault());
+                                    ,Locale.getDefault());
                             List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
                             pin = addresses.get(0).getPostalCode();
                             district = addresses.get(0).getLocality();
 
 
-
                             Toast.makeText(HospitalRegistration2.this, "PIN : "+pin+"DISTRICT : "+district, Toast.LENGTH_SHORT).show();
-
 
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -213,6 +217,7 @@ public class HospitalRegistration2 extends AppCompatActivity {
 
 
     //check for permission available or not
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -278,6 +283,67 @@ public class HospitalRegistration2 extends AppCompatActivity {
 
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri)) ;
 
+    }
+
+    private void uploadImage(){
+        final ProgressDialog pd = new ProgressDialog(HospitalRegistration2.this);
+        pd.setMessage("Uploading");
+        pd.show();
+        pd.setCancelable(false);
+
+        if (FilePathUri != null){
+            final StorageReference fileReference = storageReference.child(System.currentTimeMillis()
+                    +"."+GetFileExtension(FilePathUri));
+
+            uploadTask = fileReference.putFile(FilePathUri);
+            uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()){
+
+                        throw  task.getException();
+
+                    }
+
+                    return  fileReference.getDownloadUrl();
+                }
+            }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()){
+                        Uri downloadUri = task.getResult();
+                        String mUri = downloadUri.toString();
+
+                        reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+                        HashMap<String, Object> map = new HashMap<>();
+                        map.put("ID CARD URL", ""+mUri);
+                        reference.updateChildren(map);
+
+                        pd.dismiss();
+
+                        Toast.makeText(HospitalRegistration2.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(HospitalRegistration2.this, HospitalBedUpdate.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish();
+
+                    } else {
+
+                        Toast.makeText(HospitalRegistration2.this, "Failed!", Toast.LENGTH_SHORT).show();
+                        pd.dismiss();
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(HospitalRegistration2.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    pd.dismiss();
+                }
+            });
+        } else {
+            Toast.makeText(HospitalRegistration2.this, "Please add your ID card Image by Adding", Toast.LENGTH_SHORT).show();
+        }
     }
 
 

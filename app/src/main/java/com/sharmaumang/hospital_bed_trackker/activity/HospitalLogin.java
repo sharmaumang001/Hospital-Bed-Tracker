@@ -1,4 +1,4 @@
-package com.example.bedtracker.activity;
+package com.sharmaumang.hospital_bed_trackker.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
-
-import com.example.bedtracker.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
@@ -22,8 +20,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.sharmaumang.hospital_bed_trackker.R;
 
 public class HospitalLogin extends AppCompatActivity {
 
@@ -51,6 +49,7 @@ public class HospitalLogin extends AppCompatActivity {
         pass = findViewById(R.id.pass_lay);
         btnLogin=findViewById(R.id.btnLogin);
 
+        mAuth = FirebaseAuth.getInstance();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +64,7 @@ public class HospitalLogin extends AppCompatActivity {
 
                 else if((email.equals("abc@gmail.com")) && (password.equals("123"))){
 
-                    Intent mIntent = new Intent(HospitalLogin.this,HospitalBedUpdate.class);
+                    Intent mIntent = new Intent(HospitalLogin.this, HospitalBedUpdate.class);
                     finish();
                     startActivity(mIntent);
 
@@ -112,10 +111,14 @@ public class HospitalLogin extends AppCompatActivity {
                 if (dataSnapshot.getValue() != null){
 
                     SignIn(Email,Password);
+                    Intent mIntent = new Intent(HospitalLogin.this,HospitalBedUpdate.class);
+                    finish();
+                    startActivity(mIntent);
+
 
                 }else{
 
-                    Intent mIntent = new Intent(HospitalLogin.this,HospitalRegistration.class);
+                    Intent mIntent = new Intent(HospitalLogin.this, HospitalRegistration.class);
                     mIntent.putExtra("Email",Email);
                     finish();
                     startActivity(mIntent);
