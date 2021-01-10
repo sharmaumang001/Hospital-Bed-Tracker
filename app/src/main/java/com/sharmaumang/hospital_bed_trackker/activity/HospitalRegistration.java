@@ -11,11 +11,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
-
 import com.google.android.material.textfield.TextInputEditText;
 import com.sharmaumang.hospital_bed_trackker.R;
-import com.sharmaumang.hospital_bed_trackker.activity.HospitalRegistration2;
-
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
