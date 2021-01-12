@@ -3,17 +3,19 @@ package com.sharmaumang.hospital_bed_trackker.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.sharmaumang.hospital_bed_trackker.R;
 
 import java.text.SimpleDateFormat;
@@ -51,14 +53,8 @@ public class HospitalBedUpdate extends AppCompatActivity {
         uid=auth.getCurrentUser().getUid();
 
 
-        Calendar c = Calendar.getInstance();
 
 
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String formattedDate = df.format(c.getTime());
-
-        // formattedDate have current date/time
-        Toast.makeText(this, formattedDate, Toast.LENGTH_SHORT).show();
 
 
 
@@ -66,10 +62,18 @@ public class HospitalBedUpdate extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Calendar c = Calendar.getInstance();
+
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String formattedDate = df.format(c.getTime());
+
                 txtTotalBeds = mTotalBeds.getText().toString();
                 txtAvailableBeds = mAvailableBeds.getText().toString();
 
                 UpdateData(txtTotalBeds,txtAvailableBeds,mDatabaseRef,formattedDate);
+
+
+
             }
         });
 
@@ -77,47 +81,40 @@ public class HospitalBedUpdate extends AppCompatActivity {
 
     public void UpdateData(String totalBeds,String availableBeds,DatabaseReference databaseRef,String DateTime){
 
-        mDatabaseRef.child("Users").child(uid).child("Total Number of beds").setValue("Total Number of Beds : "+totalBeds)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
+        final ProgressDialog pd = new ProgressDialog(HospitalBedUpdate.this);
+        pd.setMessage("Checking Details");
+        pd.show();
+        pd.setCancelable(false);
+
+        mDatabaseRef.child("Users").child(uid).child("Total Number of beds").setValue("Total Number of Beds : "+totalBeds);
+
+        mDatabaseRef.child("Users").child(uid).child("Number of beds available").setValue("Number of Beds Available : "+availableBeds);
+
+        mDatabaseRef.child("Users").child(uid).child("Data-Time").setValue("Updated on : "+DateTime);
+
+
+        mDatabaseRef.child("Users").child(uid).child("Data-Time").equalTo(DateTime)
+
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+
                     @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(HospitalBedUpdate.this,"Total Beds updated",Toast.LENGTH_SHORT);
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        pd.dismiss();
+                        Toast.makeText(HospitalBedUpdate.this, "Data updated successfully!", Toast.LENGTH_SHORT).show();
+                        mTotalBeds.setText("");
+                        mAvailableBeds.setText("");
 
                     }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(HospitalBedUpdate.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
 
-
-        mDatabaseRef.child("Users").child(uid).child("Number of beds available").setValue("Number of Beds Available : "+availableBeds)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(HospitalBedUpdate.this,"Available Beds updated",Toast.LENGTH_SHORT);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(HospitalBedUpdate.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
-        mDatabaseRef.child("Users").child(uid).child("Data-Time").setValue("Updated on : "+DateTime)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(HospitalBedUpdate.this,"Date Time updated",Toast.LENGTH_SHORT);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(HospitalBedUpdate.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+                        pd.dismiss();
+                        Toast.makeText(HospitalBedUpdate.this, "Error Updating the data, please try again!", Toast.LENGTH_SHORT).show();
 
+                    }
+                });
 
 
     }
