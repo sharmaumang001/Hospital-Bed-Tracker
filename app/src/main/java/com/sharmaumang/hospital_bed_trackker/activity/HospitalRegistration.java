@@ -9,11 +9,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
-
 import com.google.android.material.textfield.TextInputEditText;
 import com.sharmaumang.hospital_bed_trackker.R;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HospitalRegistration extends AppCompatActivity {

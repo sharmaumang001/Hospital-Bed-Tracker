@@ -2,4 +2,6 @@
     <string name="app_name">BedTracker</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="Write_up">"To minimise the day to day casualties happening around due to lack of information about hospital beds."</string>
 </resources>

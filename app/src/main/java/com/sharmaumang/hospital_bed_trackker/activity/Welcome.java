@@ -1,5 +1,6 @@
 package com.sharmaumang.hospital_bed_trackker.activity;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.sharmaumang.hospital_bed_trackker.R;
-
 
 public class Welcome extends AppCompatActivity {
     private Button hospital_login,user_login;
@@ -35,12 +33,14 @@ public class Welcome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Welcome.this, HospitalLogin.class));
+                finish();
             }
         });
         user_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Welcome.this,MainActivity.class));
+                finish();
             }
         });
 
