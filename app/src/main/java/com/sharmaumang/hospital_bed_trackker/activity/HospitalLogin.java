@@ -24,6 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sharmaumang.hospital_bed_trackker.R;
+import com.sharmaumang.hospital_bed_trackker.activity.HospitalBedUpdate;
+import com.sharmaumang.hospital_bed_trackker.activity.HospitalRegistration;
 
 public class HospitalLogin extends AppCompatActivity {
 
@@ -66,7 +68,7 @@ public class HospitalLogin extends AppCompatActivity {
 
                 else if((email.equals("abc@gmail.com")) && (password.equals("123"))){
 
-                    Intent mIntent = new Intent(HospitalLogin.this,HospitalBedUpdate.class);
+                    Intent mIntent = new Intent(HospitalLogin.this, HospitalBedUpdate.class);
                     finish();
                     startActivity(mIntent);
 
@@ -145,7 +147,7 @@ public class HospitalLogin extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 pd.dismiss();
-                Toast.makeText(HospitalLogin.this, "Error in connecting to database.Please restart and try again!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HospitalLogin.this,databaseError.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
