@@ -57,13 +57,14 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:startIconDrawable="@drawable/ic_name">
+                app:startIconDrawable="@drawable/name">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_f_name_emplee"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLines="1"/>
+                    android:maxLines="1"
+                    android:inputType="text"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,13 +88,15 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/f_name_emplee"
-                app:startIconDrawable="@drawable/ic_district">
+                app:startIconDrawable="@drawable/district">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_id_emplee"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLines="1"/>
+                    android:maxLines="1"
+                    android:inputType="text"/>
+
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,13 +118,15 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/id_emplee"
-                app:startIconDrawable="@drawable/ic_pincode">
+                app:startIconDrawable="@drawable/pincode">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_pass_emplee"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLines="1"/>
+                    android:maxLines="1"
+                    android:inputType="text"/>
+
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -151,7 +156,7 @@
         android:id="@+id/imageView"
         android:layout_width="136dp"
         android:layout_height="136dp"
-        android:src="@drawable/ic_profile_image"
+        android:src="@drawable/hospital2"
         app:layout_constraintBottom_toTopOf="@+id/materialCardView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

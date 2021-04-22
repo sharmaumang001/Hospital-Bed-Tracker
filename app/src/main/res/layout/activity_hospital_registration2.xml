@@ -58,13 +58,15 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:startIconDrawable="@drawable/ic_name">
+                app:startIconDrawable="@drawable/name">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_f_name_emplee2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxLines="1"/>
+                    android:maxLines="1"
+                    android:inputType="text"/>
+
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,13 +90,15 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/f_name_emplee2"
-                app:startIconDrawable="@drawable/ic_district">
+                app:startIconDrawable="@drawable/district">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_id_emplee2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLines="1"/>
+                    android:maxLines="1"
+                    android:inputType="text"/>
+
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -116,7 +120,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/id_emplee2"
-                app:startIconDrawable="@drawable/ic_pincode">
+                app:startIconDrawable="@drawable/pincode">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_pass_emplee2"

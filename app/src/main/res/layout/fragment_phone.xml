@@ -15,7 +15,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/dots"
+        android:src="@drawable/ic_dots"
         app:layout_constraintBottom_toTopOf="@+id/guideline1"
         app:layout_constraintDimensionRatio="100:84"
         app:layout_constraintEnd_toEndOf="parent"
