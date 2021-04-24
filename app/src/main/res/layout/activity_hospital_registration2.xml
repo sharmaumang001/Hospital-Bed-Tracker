@@ -38,8 +38,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/f_name_emplee2"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -58,7 +56,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:startIconDrawable="@drawable/name">
+                app:startIconDrawable="@drawable/ic_name">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_f_name_emplee2"
@@ -90,7 +88,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/f_name_emplee2"
-                app:startIconDrawable="@drawable/district">
+                app:startIconDrawable="@drawable/ic_district">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_id_emplee2"
@@ -120,7 +118,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/id_emplee2"
-                app:startIconDrawable="@drawable/pincode">
+                app:startIconDrawable="@drawable/ic_pincode">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_pass_emplee2"
