@@ -17,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.card.MaterialCardView;
 import com.sharmaumang.hospital_bed_trackker.R;
 import com.sharmaumang.hospital_bed_trackker.model.bedModel;
@@ -54,6 +53,9 @@ public class bedAdapter extends RecyclerView.Adapter<bedAdapter.ViewHolder> impl
         holder.tvHospital.setText(details.get(position).getHosName());
         holder.tvAvailable.setText(details.get(position).getAvailable());
         holder.tvTotal.setText(details.get(position).getTotal());
+        holder.bedupdatedate.setText(details.get(position).getUpdatedate());
+        holder.district_postal.setText(details.get(position).getDistrict());
+
 
         boolean isExpanded = details.get(position).isExpanded();
         holder.materialCardView.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
@@ -107,6 +109,7 @@ public class bedAdapter extends RecyclerView.Adapter<bedAdapter.ViewHolder> impl
     {
 
         TextView tvHospital,tvAvailable,tvTotal;
+        TextView district_postal,bedupdatedate;
         MaterialCardView layout;
         CardView materialCardView;
 
@@ -118,6 +121,9 @@ public class bedAdapter extends RecyclerView.Adapter<bedAdapter.ViewHolder> impl
             tvAvailable=itemView.findViewById(R.id.tvAvailable);
             layout=itemView.findViewById(R.id.layout);
             materialCardView=itemView.findViewById(R.id.expandableLayout);
+            district_postal = itemView.findViewById(R.id.district_postalcode);
+            bedupdatedate = itemView.findViewById(R.id.updatedon);
+
 
             layout.setOnClickListener(new View.OnClickListener() {
                 @Override

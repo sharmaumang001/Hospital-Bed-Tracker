@@ -4,12 +4,36 @@ public class bedModel
 {
     private String hosName, available,total;
     private boolean expanded;
+    private  String district,updatedate;
 
-    public bedModel(String hosName, String available, String total) {
+    public bedModel(String hosName, String available, String total, String district, String updatedate) {
         this.hosName = hosName;
         this.available = available;
         this.total = total;
+        this.district = district;
+        this.updatedate = updatedate;
     }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getUpdatedate() {
+        return updatedate;
+    }
+
+    public void setUpdatedate(String updatedate) {
+        this.updatedate = updatedate;
+    }
+//    public bedModel(String hosName, String available, String total) {
+//        this.hosName = hosName;
+//        this.available = available;
+//        this.total = total;
+//    }
 
     public String getHosName() {
         return hosName;
