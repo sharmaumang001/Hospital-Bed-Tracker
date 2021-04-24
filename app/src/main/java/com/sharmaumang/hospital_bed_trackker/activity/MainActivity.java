@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.bedtracker.Phone;
 import com.sharmaumang.hospital_bed_trackker.R;
+import com.sharmaumang.hospital_bed_trackker.Phone;
 
 
 public class MainActivity extends AppCompatActivity {

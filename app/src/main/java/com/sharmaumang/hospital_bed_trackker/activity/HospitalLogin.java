@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
@@ -22,10 +21,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.sharmaumang.hospital_bed_trackker.R;
-import com.sharmaumang.hospital_bed_trackker.activity.HospitalBedUpdate;
-import com.sharmaumang.hospital_bed_trackker.activity.HospitalRegistration;
 
 public class HospitalLogin extends AppCompatActivity {
 
@@ -68,7 +66,7 @@ public class HospitalLogin extends AppCompatActivity {
 
                 else if((email.equals("abc@gmail.com")) && (password.equals("123"))){
 
-                    Intent mIntent = new Intent(HospitalLogin.this, HospitalBedUpdate.class);
+                    Intent mIntent = new Intent(HospitalLogin.this,HospitalBedUpdate.class);
                     finish();
                     startActivity(mIntent);
 
@@ -135,7 +133,7 @@ public class HospitalLogin extends AppCompatActivity {
                 }else{
 
                     pd.dismiss();
-                    Intent mIntent = new Intent(HospitalLogin.this, HospitalRegistration.class);
+                    Intent mIntent = new Intent(HospitalLogin.this,HospitalRegistration.class);
                     mIntent.putExtra("Email",Email);
                     finish();
                     startActivity(mIntent);
